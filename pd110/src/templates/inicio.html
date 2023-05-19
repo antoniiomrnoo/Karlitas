@@ -1,3 +1,6 @@
 <h1>Hola me llamo Antonio</h1>
 
-{{ el_form }}
+<form method="POST" action="">{% csrf_token %}
+{{ el_form.as_p }}
+<input type="submit" value="Registrar" />
+</form>
