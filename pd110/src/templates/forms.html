@@ -1,0 +1,9 @@
+{{ temp_titulo }}<br/>
+{{ request.user }}
+<hr/>
+<br/>
+
+<form method="POST" action="">{% csrf_token %}
+{{ form.as_p }}
+<input type="submit" value="Registrar" />
+</form>

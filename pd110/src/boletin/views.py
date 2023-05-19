@@ -1,7 +1,8 @@
 from django.shortcuts import render
 
-from .forms import RegForm, RegModelForm
+from .forms import RegModelForm, ContactForm
 from .models import Registrado
+
 
 # Create your views here.
 def inicio(request):
@@ -19,11 +20,17 @@ def inicio(request):
         instance = form.save(commit=False)
         if not instance.nombre:
             instance.nombre = "PERSONA"
-        instance.save()
+            instance.save()
 
         context = {
-            "titulo": "Gracias %s!" %(nombre)
+            "titulo": "Gracias %s!" %instance.nombre
         }
+
+        if not instance.nombre:
+            context = {
+                "titulo": "Gracias %s!" %instance.email
+            }
+
 
         print(instance)
         print(instance.timestamp)
@@ -34,3 +41,14 @@ def inicio(request):
 
 
     return render(request, "inicio.html", context)
+
+def contact(request):
+    form = ContactForm(request.POST or None)
+    context = {
+        "form": form,
+    }
+    return render(request, "forms.html", context)
+
+
+
+
