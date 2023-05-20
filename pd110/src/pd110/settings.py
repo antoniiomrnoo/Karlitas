@@ -27,6 +27,17 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+EMAIL_HOST = "smtp.gmail.com" #"smtp.iesfernandoaguilar.es"
+EMAIL_HOST_USER = "antonio.moreno.varilla.alu@iesfernandoaguilar.es" #"tu_email@iesfernandoaguilar.es"
+EMAIL_HOST_PASSWORD = "ernufhranfupcqio"
+EMAIL_PORT = 587 
+EMAIL_USE_TLS = True
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+'''
+Para usar gmail hay que desboquear captcha
+https://accounts.google.com/displayunlockcaptcha
+'''
 
 # Application definition
 
