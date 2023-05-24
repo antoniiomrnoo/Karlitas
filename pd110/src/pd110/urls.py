@@ -20,11 +20,13 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 from boletin import views
+from .views import about
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('contact/', views.contact, name='contact'),
-     path('', views.inicio, name='inicio'),
+    path('', views.inicio, name='inicio'),
+    path('about/', about, name='about'),
 ]
 
 if settings.DEBUG:
